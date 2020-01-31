@@ -5,16 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public GameObject obj;
+    public int lifes = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (obj)
+        {
+            obj.GetComponent<PlayerController>().speed = 100;
+        }
     }
 
     private void FixedUpdate()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -38,5 +43,15 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.transform.Translate(new Vector3(1, 0) * speed * Time.deltaTime);
         }*/
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("Hei");
+        if (collision.gameObject.name.Equals("Fly"))
+        {
+            lifes++;
+            Destroy(collision.gameObject);
+        }
     }
 }
