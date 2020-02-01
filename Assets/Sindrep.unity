@@ -171,9 +171,9 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!1 &391570488 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8111416496450957092, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+  m_CorrespondingSourceObject: {fileID: 4817917070060365165, guid: d55bf5cda60f17640beb1e4694bd0ae7,
     type: 3}
-  m_PrefabInstance: {fileID: 8111416496303180572}
+  m_PrefabInstance: {fileID: 4817917069711098197}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &572547669 stripped
 MonoBehaviour:
@@ -4043,69 +4043,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b258c4bba07d1df4c945a21e900eaeee, type: 3}
---- !u!1001 &8111416496303180572
+--- !u!1001 &4817917069711098197
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.49
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957088, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365161, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8111416496450957092, guid: d55bf5cda60f17640beb1e4694bd0ae7,
+    - target: {fileID: 4817917070060365165, guid: d55bf5cda60f17640beb1e4694bd0ae7,
         type: 3}
       propertyPath: m_Name
       value: Fly
