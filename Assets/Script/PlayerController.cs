@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public Vector3 respawnPoint;
     public Vector3 boardStart;
     public bool grounded;
+    public Text lifesCounter;
+    
+
 
 
     // Start is called before the first frame update
@@ -17,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         respawnPoint = transform.position;
         boardStart = transform.position;
+
         
     }
 
@@ -30,8 +36,9 @@ public class PlayerController : MonoBehaviour
     {
 
             transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
+        lifesCounter.text = "" + lifes;
 
-            if (Input.GetKey(KeyCode.Space) && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded)
             {
                 jump();
             }
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Fly"))
         {
             lifes++;
+          
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag.Equals("DeathSpike"))
