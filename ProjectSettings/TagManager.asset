@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - HookShotAnchor
   - checkpoint
+  - Sticky
   layers:
   - Default
   - TransparentFX

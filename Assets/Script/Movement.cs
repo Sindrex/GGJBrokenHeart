@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public float yRadius = 5;
     public int xDirection = 0;
     public int yDirection = 0;
+    public GameObject player;
+    public bool playerContact = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,10 @@ public class Movement : MonoBehaviour
             if (startPos.x + xRadius > transform.position.x)
             {
                 transform.Translate(new Vector3(1, 0, 0) * xSpeed * Time.deltaTime);
+                if (playerContact)
+                {
+                    player.transform.Translate(new Vector3(1, 0, 0) * xSpeed * Time.deltaTime);
+                }
             }
             else
             {
@@ -36,6 +42,10 @@ public class Movement : MonoBehaviour
             if (startPos.x - xRadius < transform.position.x)
             {
                 transform.Translate(new Vector3(-1, 0, 0) * xSpeed * Time.deltaTime);
+                if (playerContact)
+                {
+                    player.transform.Translate(new Vector3(-1, 0, 0) * xSpeed * Time.deltaTime);
+                }
             }
             else
             {
@@ -48,6 +58,10 @@ public class Movement : MonoBehaviour
             if (startPos.y + yRadius > transform.position.y)
             {
                 transform.Translate(new Vector3(0, 1, 0) * ySpeed * Time.deltaTime);
+                if (playerContact)
+                {
+                    player.transform.Translate(new Vector3(0, 1, 0) * ySpeed * Time.deltaTime);
+                }
             }
             else
             {
@@ -59,6 +73,10 @@ public class Movement : MonoBehaviour
             if (startPos.y - yRadius < transform.position.y)
             {
                 transform.Translate(new Vector3(0, -1, 0) * ySpeed * Time.deltaTime);
+                if (playerContact)
+                {
+                    player.transform.Translate(new Vector3(0, -1, 0) * ySpeed * Time.deltaTime);
+                }
             }
             else
             {
@@ -71,5 +89,21 @@ public class Movement : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("Frog"))
+        {
+            playerContact = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("Frog"))
+        {
+            playerContact = false;
+        }
     }
 }

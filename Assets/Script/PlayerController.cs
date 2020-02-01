@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag.Equals("Ground"))
+        if (collision.gameObject.tag.Equals("Ground") || collision.gameObject.tag.Equals("Sticky"))
         {
             grounded = true;
         }
