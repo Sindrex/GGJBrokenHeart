@@ -5,19 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public GameObject obj;
     public int lifes = 5;
     public Vector3 respawnPoint;
     public bool grounded;
+
 
     // Start is called before the first frame update
     void Start()
     {
         respawnPoint = transform.position;
-        if (obj)
-        {
-            //obj.GetComponent<PlayerController>().speed = 100;
-        }
     }
 
     private void FixedUpdate()
@@ -37,24 +33,6 @@ public class PlayerController : MonoBehaviour
                 jump();
             }
         }
-
-        /*
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.gameObject.transform.Translate(new Vector3(0, 1) * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.gameObject.transform.Translate(new Vector3(-1, 0) * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.gameObject.transform.Translate(new Vector3(0, -1) * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            this.gameObject.transform.Translate(new Vector3(1, 0) * speed * Time.deltaTime);
-        }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
