@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public enum Direction {right, left, up, down }
+
+    public Direction imFacing;
     public float speed;
-    public GameObject obj;
     public int lifes = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        if (obj)
-        {
-            //obj.GetComponent<PlayerController>().speed = 100;
-        }
+        imFacing = Direction.right;
     }
 
     private void FixedUpdate()
@@ -26,28 +26,30 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, Input.GetAxis("Vertical") * Time.deltaTime * speed, 0.0f);
-        /*
-        if (Input.GetKey(KeyCode.W))
+
+        //print(imFacing);
+
+        if (Input.GetAxis("Horizontal") > 0)
         {
-            this.gameObject.transform.Translate(new Vector3(0, 1) * speed * Time.deltaTime);
+            imFacing = Direction.right;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxis("Horizontal") < 0)
         {
-            this.gameObject.transform.Translate(new Vector3(-1, 0) * speed * Time.deltaTime);
+            imFacing = Direction.left;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetAxis("Vertical") > 0)
         {
-            this.gameObject.transform.Translate(new Vector3(0, -1) * speed * Time.deltaTime);
+            imFacing = Direction.up;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Vertical") < 0)
         {
-            this.gameObject.transform.Translate(new Vector3(1, 0) * speed * Time.deltaTime);
-        }*/
+            imFacing = Direction.down;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("Hei");
+        //print("Hei");
         if (collision.gameObject.name.Equals("Fly"))
         {
             lifes++;
