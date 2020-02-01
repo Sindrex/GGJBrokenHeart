@@ -25,7 +25,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, Input.GetAxis("Vertical") * Time.deltaTime * speed, 0.0f);
+        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            jump();
+        }
+
         /*
         if (Input.GetKey(KeyCode.W))
         {
@@ -52,6 +58,18 @@ public class PlayerController : MonoBehaviour
         {
             lifes++;
             Destroy(collision.gameObject);
+        }
+    }
+
+    private void jump()
+    {
+
+        float timePassed = 0;
+
+        while(timePassed <= 1000.0f)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.001f));
+            timePassed += Time.deltaTime;
         }
     }
 }
