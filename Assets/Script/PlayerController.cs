@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject obj;
     public int lifes = 5;
     public Vector3 respawnPoint;
+    public bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
 
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && grounded)
         {
             jump();
         }
@@ -55,7 +56,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("Hei");
         if (collision.gameObject.name.Equals("Fly"))
         {
             lifes++;
@@ -73,16 +73,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.tag.Equals("Ground"))
+        {
+            grounded = true;
+        }
     }
 
     private void jump()
     {
-
         float timePassed = 0;
+        grounded = false;
 
         while(timePassed <= 1000.0f)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.001f));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.0025f));
             timePassed += Time.deltaTime;
         }
     }
