@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public GameObject obj;
     public int lifes = 5;
+    public Vector3 respawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+        respawnPoint = transform.position;
         if (obj)
         {
             //obj.GetComponent<PlayerController>().speed = 100;
@@ -59,6 +61,18 @@ public class PlayerController : MonoBehaviour
             lifes++;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag.Equals("DeathSpike"))
+        {
+            if(lifes < 2)
+            {
+                print("you died");
+            }else
+            {
+                lifes--;
+                transform.position = respawnPoint;
+            }
+        }
+
     }
 
     private void jump()
