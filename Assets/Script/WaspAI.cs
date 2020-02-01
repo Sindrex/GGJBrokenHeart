@@ -28,6 +28,12 @@ public class WaspAI : MonoBehaviour
             Transform tHit = gHit.transform;
             Vector2 position = new Vector2(tHit.position.x - 5F, tHit.position.y);
             myPlayer.transform.position = position;
+            myPlayer.lifes--;
+            if(myPlayer.lifes < 1)
+            {
+                myPlayer.transform.position = myPlayer.boardStart;
+                myPlayer.lifes = 5;
+            }
 
 
         }
