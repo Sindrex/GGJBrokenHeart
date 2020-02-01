@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
     public int lifes = 5;
     public Vector3 respawnPoint;
+    public Vector3 boardStart;
     public bool grounded;
 
 
@@ -14,6 +16,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         respawnPoint = transform.position;
+        boardStart = transform.position;
+        
     }
 
     private void FixedUpdate()
@@ -24,15 +28,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lifes > 0)
-        {
+
             transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
 
             if (Input.GetKey(KeyCode.Space) && grounded)
             {
                 jump();
             }
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,10 +47,21 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.tag.Equals("DeathSpike"))
         {
-            transform.position = respawnPoint;
-            print("you died");
-            print(lifes);
-            lifes--;
+            if(lifes < 1)
+            {
+                //TODO restart current level start from beginning
+                string levelName = SceneManager.GetActiveScene().name;
+                SceneManager.LoadScene(levelName);
+
+            }else
+            {
+                transform.position = respawnPoint;
+                print("you died");
+                print(lifes);
+                lifes--;
+            }
+
+            
 
 
 
