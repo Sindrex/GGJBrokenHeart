@@ -25,4 +25,6 @@ public class TonguePlayer : MonoBehaviour
             myPlayer.GetComponent<Animator>().Play("TongueAttack");
         }
     }
+
+
 }
