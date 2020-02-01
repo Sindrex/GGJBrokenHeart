@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Fly"))
+        if (collision.gameObject.tag.Equals("Fly"))
         {
             lifes++;
             Destroy(collision.gameObject);
