@@ -31,8 +31,7 @@ public class TongueController : MonoBehaviour
             print("SLUUURP");
             GameObject gHit = collision.gameObject;
             Transform tHit = gHit.transform;
-            Vector2 position = new Vector2(tHit.position.x, tHit.position.y-0.3F);
-            Debug.Log(position);
+            Vector2 position = new Vector2(tHit.position.x-0.3F, tHit.position.y-0.3F);
             myPlayer.transform.position = position;
 
 
