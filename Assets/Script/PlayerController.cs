@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
         {
             if(lifes < 1)
             {
-                //TODO restart current level start from beginning
                 string levelName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(levelName);
 
