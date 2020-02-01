@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         if (obj)
         {
-            obj.GetComponent<PlayerController>().speed = 100;
+            //obj.GetComponent<PlayerController>().speed = 100;
         }
     }
 
