@@ -24,11 +24,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, Input.GetAxis("Vertical") * Time.deltaTime * speed, 0.0f);
-
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        if (lifes > 0)
         {
-            jump();
+            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
+
+            if (Input.GetKey(KeyCode.Space) && grounded)
+            {
+                jump();
+            }
         }
     }
 
@@ -41,14 +44,14 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.tag.Equals("DeathSpike"))
         {
-            if(lifes < 2)
-            {
-                print("you died");
-            }else
-            {
-                lifes--;
-                transform.position = respawnPoint;
-            }
+            transform.position = respawnPoint;
+            print("you died");
+            print(lifes);
+            lifes--;
+
+
+
+
         }
 
         if (collision.gameObject.tag.Equals("Ground"))
@@ -64,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         while(timePassed <= 1000.0f)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.0025f));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.0085f));
             timePassed += Time.deltaTime;
         }
     }

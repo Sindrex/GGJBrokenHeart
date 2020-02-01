@@ -31,7 +31,17 @@ public class TongueController : MonoBehaviour
             myPlayer.lifes++;
             Destroy(collision.gameObject);
         }
-        //hookPos = collision.transform.position;
-        //hookLerp = true;
+        if(collision.gameObject.tag.Equals("HookShotAnchor"))
+        {
+            print("SLUUURP");
+            GameObject gHit = collision.gameObject;
+            Transform tHit = gHit.transform;
+            Vector2 position = new Vector2(tHit.position.x-0.3F, tHit.position.y-0.3F);
+            myPlayer.transform.position = position;
+
+
+
+        }
     }
+
 }
