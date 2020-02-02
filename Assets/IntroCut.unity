@@ -243,6 +243,7 @@ MonoBehaviour:
   tongue: {fileID: 2000342348}
   title: {fileID: 907223213}
   explode: {fileID: 0}
+  explosionSound: {fileID: 0}
   flyQueen: {fileID: 0}
   quit: {fileID: 0}
 --- !u!4 &431225790
