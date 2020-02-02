@@ -99,6 +99,14 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("Frog"))
+        {
+            playerContact = true;
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Frog"))
