@@ -22,8 +22,9 @@ public class Killswitch : MonoBehaviour
     {
         if(collision.gameObject.name.Equals("Frog") || collision.gameObject.name.Equals("Tounge"))
         {
-            print("Hello!");
+            print("Hello!");    
             item.gameObject.GetComponent<Rigidbody2D>().gravityScale = 3;
+            Destroy(this.gameObject);
         }
     }
 }
