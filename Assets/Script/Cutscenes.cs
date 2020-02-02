@@ -12,6 +12,7 @@ public class Cutscenes : MonoBehaviour
     public Animator heartLeft;
     public Animator heartRight;
     public Animator frog;
+    public AudioSource tongue;
     public GameObject title;
     public Animator explode;
     public GameObject flyQueen;
@@ -99,15 +100,21 @@ public class Cutscenes : MonoBehaviour
         heartRight.gameObject.SetActive(true);
         heartRight.Play("RightFollow");
         yield return new WaitForSeconds(4f);
+        waspKing.gameObject.SetActive(false);
         heartRight.gameObject.SetActive(false);
         heartLeft.Play("LeftDown");
         yield return new WaitForSeconds(3f);
         frog.gameObject.SetActive(true);
         frog.Play("IntroCut");
+        frog.gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1.5f);
         heartLeft.gameObject.SetActive(false);
+        tongue.Play();
+        yield return new WaitForSeconds(0.5f);
+        frog.gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1.5f);
         title.SetActive(true);
+        tongue.Play();
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Level 1");
     }

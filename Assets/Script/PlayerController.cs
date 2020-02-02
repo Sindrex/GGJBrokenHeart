@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 boardStart;
     public bool grounded;
     public Text lifesCounter;
-    
+    public AudioSource jumpAudio;
 
 
 
@@ -35,12 +35,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
+        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0, 0.0f);
         lifesCounter.text = "" + lifes;
 
         if (Input.GetKey(KeyCode.Space) && grounded)
             {
                 jump();
+                jumpAudio.Play();
             }
         
     }

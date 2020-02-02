@@ -6,6 +6,7 @@ public class TonguePlayer : MonoBehaviour
 {
     public PlayerController myPlayer;
     public GameObject tongue;
+    public AudioSource tongueAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class TonguePlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             myPlayer.GetComponent<Animator>().Play("TongueAttack");
+            tongueAudio.Play();
         }
     }
 

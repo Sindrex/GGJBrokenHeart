@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlayer: {fileID: 454876275}
   tongue: {fileID: 24924992}
+  tongueAudio: {fileID: 1202579592}
 --- !u!1001 &222356411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4782,7 +4783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -579.9999, y: 262.5}
+  m_AnchoredPosition: {x: -306, y: 142}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029628257
@@ -5176,6 +5177,12 @@ PrefabInstance:
       objectReference: {fileID: 1029628257}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b258c4bba07d1df4c945a21e900eaeee, type: 3}
+--- !u!82 &1202579592 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 470151597127044135, guid: b258c4bba07d1df4c945a21e900eaeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1202579591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254000689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5738,7 +5745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
