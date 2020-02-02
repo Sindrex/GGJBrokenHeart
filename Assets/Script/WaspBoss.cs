@@ -6,16 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class WaspBoss : MonoBehaviour
 {
-    public float speed;
+    public float xSpeed;
+    public float ySpeed;
     public Vector3 startPos;
-    public float radius = 5;
-    public int direction = 1;
+    public float xRadius = 5;
+    public float yRadius = 5;
+    public int xDirection = 0;
+    public int yDirection = 0;
+
+    private int hitCounter = 0;
+
     public PlayerController myPlayer;
+
+    private List<Vector3> movements;
+    public Vector3 first = new Vector3(24.47f, 0.0f, 0.0f);
+    public Vector3 second = new Vector3(67.61f, 0.0f, 0.0f);
+
 
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        movements = new List<Vector3>();
+        movements.Add(first);
+        movements.Add(second);
     }
 
     // Update is called once per frame
@@ -23,28 +37,54 @@ public class WaspBoss : MonoBehaviour
     {
         
     }
+
     private void FixedUpdate()
     {
-        if (direction > 0)
+        if (xDirection == 1)
         {
-            if (startPos.x + radius > transform.position.x)
+            if (startPos.x + xRadius > transform.position.x)
             {
-                transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
+                transform.Translate(new Vector3(1, 0, 0) * xSpeed * Time.deltaTime);  
             }
             else
             {
-                direction = -1;
+                xDirection = -1;
             }
         }
-        else
+        else if (xDirection == -1)
         {
-            if (startPos.x - radius < transform.position.x)
+            if (startPos.x - xRadius < transform.position.x)
             {
-                transform.Translate(new Vector3(-1, 0, 0) * speed * Time.deltaTime);
+                transform.Translate(new Vector3(-1, 0, 0) * xSpeed * Time.deltaTime);
             }
             else
             {
-                direction = 1;
+                xDirection = 1;
+            }
+        }
+
+        if (yDirection == 1)
+        {
+            if (startPos.y + yRadius > transform.position.y)
+            {
+                print(transform.position);
+                transform.Translate(new Vector3(0, 1, 0) * ySpeed * Time.deltaTime);
+            }
+            else
+            {
+                yDirection = -1;
+            }
+        }
+        else if (yDirection == -1)
+        {
+            if (startPos.y - yRadius < transform.position.y)
+            {
+                print("AAAAAAAAAAAA");
+                transform.Translate(new Vector3(0, -1, 0) * ySpeed * Time.deltaTime);
+            }
+            else
+            {
+                yDirection = 1;
             }
         }
     }
@@ -74,12 +114,15 @@ public class WaspBoss : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Chandelier"))
         {
-            //TODO: move boss to right
+            startPos = movements[hitCounter];
+            hitCounter++;
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.name.Equals("FlySwatter"))
         {
-            //TODO: wasp boss ded
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
