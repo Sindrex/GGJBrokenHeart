@@ -80,6 +80,7 @@ public class WaspBoss : MonoBehaviour
         if (collision.gameObject.name.Equals("FlySwatter"))
         {
             //TODO: wasp boss ded
+            print("Wasp died");
         }
     }
 
