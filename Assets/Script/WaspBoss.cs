@@ -22,6 +22,8 @@ public class WaspBoss : MonoBehaviour
     public Vector3 first = new Vector3(24.47f, 2.5f, 0.0f);
     public Vector3 second = new Vector3(67.61f, 2.5f, 0.0f);
 
+    public Animator explosion;
+    public BossOutro outroScript;
 
     // Start is called before the first frame update
     void Start()
@@ -122,9 +124,17 @@ public class WaspBoss : MonoBehaviour
         if (collision.gameObject.name.Equals("FlySwatter"))
         {
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            //cutscene -> outro
+            StartCoroutine(outro());
         }
     }
 
-
+    IEnumerator outro()
+    {
+        explosion.gameObject.SetActive(true);
+        explosion.Play("Explode");
+        yield return new WaitForSeconds(0.5f);
+        outroScript.play();
+        this.gameObject.SetActive(false);
+    }
 }

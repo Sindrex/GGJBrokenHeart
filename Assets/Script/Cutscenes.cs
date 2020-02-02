@@ -48,11 +48,14 @@ public class Cutscenes : MonoBehaviour
     IEnumerator outroCut()
     {
         frog.Play("OutroCut");
+        frog.gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(2.1f);
         heartRight.gameObject.SetActive(true);
         heartRight.Play("RightOutro");
+        tongue.Play();
         yield return new WaitForSeconds(1f);
         heartLeft.gameObject.SetActive(true);
+        tongue.Play();
         heartLeft.Play("LeftOutro");
         yield return new WaitForSeconds(1f);
         heartLeft.gameObject.SetActive(false);
@@ -71,9 +74,13 @@ public class Cutscenes : MonoBehaviour
         flyQueen.SetActive(true);
         yield return new WaitForSeconds(4f);
         frog.Play("OutroCut2");
+        frog.gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.5f);
         flyQueen.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        tongue.Play();
+        yield return new WaitForSeconds(1.5f);
+        frog.gameObject.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(1.5f);
         quit.SetActive(true);
         ok = true;
     }
