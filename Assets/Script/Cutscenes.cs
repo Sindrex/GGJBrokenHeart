@@ -13,17 +13,57 @@ public class Cutscenes : MonoBehaviour
     public Animator heartRight;
     public Animator frog;
     public GameObject title;
+    public Animator explode;
+    public GameObject flyQueen;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(introCut());
+        if (SceneManager.GetActiveScene().name.Equals("IntroCut"))
+        {
+            StartCoroutine(introCut());
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("OutroCut"))
+        {
+            StartCoroutine(outroCut());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator outroCut()
+    {
+        frog.Play("OutroCut");
+        yield return new WaitForSeconds(2.1f);
+        heartRight.gameObject.SetActive(true);
+        heartRight.Play("RightOutro");
+        yield return new WaitForSeconds(1f);
+        heartLeft.gameObject.SetActive(true);
+        heartLeft.Play("LeftOutro");
+        yield return new WaitForSeconds(1f);
+        heartLeft.gameObject.SetActive(false);
+        heartRight.gameObject.SetActive(false);
+        heart.gameObject.SetActive(true);
+        heart.Play("ExplodeAnimBackwards");
+        yield return new WaitForSeconds(4f);
+        princess2.SetActive(false);
+        princess.gameObject.SetActive(true);
+        princess.Play("OutroAnim");
+        yield return new WaitForSeconds(2f);
+        explode.gameObject.SetActive(true);
+        explode.Play("Explode");
+        yield return new WaitForSeconds(0.5f);
+        princess.gameObject.SetActive(false);
+        flyQueen.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        frog.Play("OutroCut2");
+        yield return new WaitForSeconds(0.5f);
+        flyQueen.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
     }
 
     IEnumerator introCut()
