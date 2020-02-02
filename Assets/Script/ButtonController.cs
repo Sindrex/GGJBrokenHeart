@@ -23,6 +23,7 @@ public class ButtonController : MonoBehaviour
         if(collision.gameObject.name.Equals("Frog") || collision.gameObject.name.Equals("Tounge"))
         {
             Destroy(door);
+            Destroy(this.gameObject);
         }
     }
 }
