@@ -12,6 +12,7 @@ public class Cutscenes : MonoBehaviour
     public Animator heartLeft;
     public Animator heartRight;
     public Animator frog;
+    public GameObject title;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,9 @@ public class Cutscenes : MonoBehaviour
         frog.Play("IntroCut");
         yield return new WaitForSeconds(1.5f);
         heartLeft.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        title.SetActive(true);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Level 1");
     }
 }
