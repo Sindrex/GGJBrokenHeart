@@ -24,6 +24,7 @@ public class WaspBoss : MonoBehaviour
 
     public Animator explosion;
     public BossOutro outroScript;
+    public AudioSource explosionSounds;
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +135,7 @@ public class WaspBoss : MonoBehaviour
     {
         explosion.gameObject.SetActive(true);
         explosion.Play("Explode");
+        explosionSounds.Play();
         yield return new WaitForSeconds(0.5f);
         outroScript.play();
         this.gameObject.SetActive(false);

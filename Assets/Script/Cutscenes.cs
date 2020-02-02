@@ -15,6 +15,7 @@ public class Cutscenes : MonoBehaviour
     public AudioSource tongue;
     public GameObject title;
     public Animator explode;
+    public AudioSource explosionSound;
     public GameObject flyQueen;
     public GameObject quit;
 
@@ -69,6 +70,7 @@ public class Cutscenes : MonoBehaviour
         yield return new WaitForSeconds(2f);
         explode.gameObject.SetActive(true);
         explode.Play("Explode");
+        explosionSound.Play();
         yield return new WaitForSeconds(0.5f);
         princess.gameObject.SetActive(false);
         flyQueen.SetActive(true);
