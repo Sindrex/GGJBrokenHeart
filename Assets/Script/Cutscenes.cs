@@ -15,6 +15,9 @@ public class Cutscenes : MonoBehaviour
     public GameObject title;
     public Animator explode;
     public GameObject flyQueen;
+    public GameObject quit;
+
+    bool ok = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +35,13 @@ public class Cutscenes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (ok)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Application.Quit();
+            }
+        }
     }
 
     IEnumerator outroCut()
@@ -63,7 +72,9 @@ public class Cutscenes : MonoBehaviour
         frog.Play("OutroCut2");
         yield return new WaitForSeconds(0.5f);
         flyQueen.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
+        quit.SetActive(true);
+        ok = true;
     }
 
     IEnumerator introCut()
