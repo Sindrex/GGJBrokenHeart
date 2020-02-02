@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WaspAI : MonoBehaviour
+
+public class WaspBoss : MonoBehaviour
 {
-    public PlayerController myPlayer;
-    public int direction = 1;
+    public float speed;
     public Vector3 startPos;
     public float radius = 5;
-    public float speed;
+    public int direction = 1;
+    public PlayerController myPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +48,10 @@ public class WaspAI : MonoBehaviour
             }
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("wasp");
+        print("wasp Boss");
 
         if (collision.gameObject.name.Equals("Frog"))
         {
@@ -59,7 +62,7 @@ public class WaspAI : MonoBehaviour
             myPlayer.transform.position = position;
             myPlayer.lifes--;
 
-            if(myPlayer.lifes < 1)
+            if (myPlayer.lifes < 1)
             {
                 string levelName = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(levelName);
@@ -68,8 +71,17 @@ public class WaspAI : MonoBehaviour
 
 
         }
-    }
 
+        if (collision.gameObject.tag.Equals("Chandelier"))
+        {
+            //TODO: move boss to right
+        }
+
+        if (collision.gameObject.name.Equals("FlySwatter"))
+        {
+            //TODO: wasp boss ded
+        }
+    }
 
 
 }
