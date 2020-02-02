@@ -24,6 +24,7 @@ public class Killswitch : MonoBehaviour
         {
             print("Hello!");    
             item.gameObject.GetComponent<Rigidbody2D>().gravityScale = 3;
+            Destroy(this.gameObject);
         }
     }
 }
