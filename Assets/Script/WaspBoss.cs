@@ -19,8 +19,8 @@ public class WaspBoss : MonoBehaviour
     public PlayerController myPlayer;
 
     private List<Vector3> movements;
-    public Vector3 first = new Vector3(24.47f, 0.0f, 0.0f);
-    public Vector3 second = new Vector3(67.61f, 0.0f, 0.0f);
+    public Vector3 first = new Vector3(24.47f, 2.5f, 0.0f);
+    public Vector3 second = new Vector3(67.61f, 2.5f, 0.0f);
 
 
     // Start is called before the first frame update
