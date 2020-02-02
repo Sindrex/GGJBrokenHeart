@@ -10,6 +10,8 @@ public class BossOutro : MonoBehaviour
     public float a = 0;
     public SpriteRenderer blackFrog;
 
+    public AudioSource glass;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,11 @@ public class BossOutro : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void playGlass()
+    {
+        glass.Play();
     }
 
     public void play()

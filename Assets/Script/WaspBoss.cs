@@ -119,6 +119,7 @@ public class WaspBoss : MonoBehaviour
             startPos = movements[hitCounter];
             hitCounter++;
             Destroy(collision.gameObject);
+            outroScript.playGlass();
         }
 
         if (collision.gameObject.name.Equals("FlySwatter"))
