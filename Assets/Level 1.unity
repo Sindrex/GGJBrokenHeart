@@ -2770,6 +2770,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathSpikes
       objectReference: {fileID: 0}
+    - target: {fileID: 3573664386101784959, guid: a56dfa6e2b22e0c4e854b7e9e3d2fafb,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573664386101784959, guid: a56dfa6e2b22e0c4e854b7e9e3d2fafb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573664386101784959, guid: a56dfa6e2b22e0c4e854b7e9e3d2fafb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a56dfa6e2b22e0c4e854b7e9e3d2fafb, type: 3}
 --- !u!1 &1948251054 stripped
