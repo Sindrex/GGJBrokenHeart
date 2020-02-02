@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         while(timePassed <= 1000.0f)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.0085f));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.01f));
             timePassed += Time.deltaTime;
         }
     }
