@@ -12,6 +12,8 @@ public class WaspBoss : MonoBehaviour
     public int direction = 1;
     public PlayerController myPlayer;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
